@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+data.sqlite
+data/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
