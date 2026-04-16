@@ -48,6 +48,8 @@ Respuesta esperada (ejemplo):
   }
 ]
 ```
+![alt text](image-1.png)
+
 
 ### 2) Health
 - `GET http://localhost:3000/health`
@@ -59,6 +61,8 @@ Respuesta esperada (ejemplo):
   "status": "ok"
 }
 ```
+
+![alt text](image.png)
 
 ## API externa usada
 
