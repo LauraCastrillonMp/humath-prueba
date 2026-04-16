@@ -1,5 +1,6 @@
 import { Request, Response, Router } from "express";
 import { ExternalService } from "./external.service";
+import { ExternalDataEntity } from './external.entity';
 
 export function createExternalRouter(): Router {
   const router = Router();
@@ -14,7 +15,7 @@ export function createExternalRouter(): Router {
     }
 
     try {
-      const result = await service.getExternalData(base, target, amount);
+      const result: ExternalDataEntity[] = await service.getExternalData(base, target, amount);
       return res.json(result);
     } catch (error: any) {
       return res.status(502).json({

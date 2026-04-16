@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ExternalDataEntity } from "./external.entity";
 
 export interface SimpleExternalData {
   id: number;
@@ -17,7 +18,11 @@ export class ExternalService {
     this.frankfurterBase = process.env.FRANKFURTER_API_URL || "https://api.frankfurter.dev";
   }
 
-  async getExternalData(base = "EUR", target = "USD", amount = 100): Promise<SimpleExternalData[]> {
+  async getExternalData(
+    base: string,
+    target: string,
+    amount: number
+  ): Promise<ExternalDataEntity[]> {
     const response = await axios.get(`${this.frankfurterBase}/v2/rates`, {
       params: { base, quotes: target },
     });
@@ -28,13 +33,16 @@ export class ExternalService {
       throw new Error("No exchange data returned by Frankfurter");
     }
 
+    const rate = data.rate;
+    const convertedAmount = amount * rate;
+
     return [
       {
         id: 1,
-        name: `${base}-${data.quote}`,
-        rate: data.rate,
+        name: `${base}-${target}`,
+        rate,
         amount,
-        convertedAmount: amount * data.rate,
+        convertedAmount,
       },
     ];
   }

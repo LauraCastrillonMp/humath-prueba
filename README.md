@@ -11,6 +11,21 @@ API REST en **Node.js + Express** que consume Frankfurter (API de divisas), tran
 - Explicar despliegue en Azure con **App Service + GitHub Actions**.
 - Incluir (de forma informativa) carga de archivos a Azure Storage con SAS.
 
+## Alcance técnico de esta prueba (sin base de datos)
+
+Esta solución no usa base de datos porque el alcance de la prueba está centrado en:
+
+- Consumo de API externa.
+- Transformación de datos.
+- Exposición de endpoints REST.
+- Despliegue en Azure.
+
+Por ese motivo:
+
+- No se implementa TypeORM ni migraciones.
+- No hay persistencia de datos.
+- Las “entities” (si se usan) son únicamente para tipado/estructura en memoria, no para almacenamiento.
+
 ## Requisitos para correr el código
 
 - **Node.js** 18 o superior.
