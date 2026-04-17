@@ -45,12 +45,50 @@ npm run dev
 API local:
 - `http://localhost:3000`
 
+API en Azure:
+- `https://humath-prueba-b3cgebh8esf8h9ap.canadacentral-01.azurewebsites.net`
+
 ## Endpoints
 
-### 1) External data
-- `GET http://localhost:3000/external-data?base=EUR&target=USD&amount=100`
+### 1) Health
 
-Respuesta esperada (ejemplo):
+### Local
+
+```bash
+GET http://localhost:3000/health
+```
+
+### Azure
+
+```bash
+GET https://humath-prueba-b3cgebh8esf8h9ap.canadacentral-01.azurewebsites.net/health
+```
+
+Respuesta esperada:
+
+```json
+{
+  "status": "ok"
+}
+```
+
+![alt text](image.png)
+
+### 2) External data
+
+### Local
+
+```bash
+GET http://localhost:3000/external-data?base=EUR&target=USD&amount=100
+```
+
+### Azure
+
+```bash
+GET https://humath-prueba-b3cgebh8esf8h9ap.canadacentral-01.azurewebsites.net/external-data?base=EUR&target=USD&amount=100
+```
+
+Respuesta esperada:
 
 ```json
 [
@@ -64,20 +102,6 @@ Respuesta esperada (ejemplo):
 ]
 ```
 ![alt text](image-1.png)
-
-
-### 2) Health
-- `GET http://localhost:3000/health`
-
-Respuesta esperada (ejemplo):
-
-```json
-{
-  "status": "ok"
-}
-```
-
-![alt text](image.png)
 
 ## API externa usada
 
@@ -120,8 +144,8 @@ Si se habilita carga de archivos:
 
 Después del despliegue, la API queda disponible en:
 
-- `https://<tu-app>.azurewebsites.net/external-data?base=EUR&target=USD&amount=100`
-- `https://<tu-app>.azurewebsites.net/health`
+- `https://humath-prueba-b3cgebh8esf8h9ap.canadacentral-01.azurewebsites.net/external-data?base=EUR&target=USD&amount=100`
+- `https://humath-prueba-b3cgebh8esf8h9ap.canadacentral-01.azurewebsites.net/health`
 
 ---
 
